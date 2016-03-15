@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div>
-		<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEhnUmpJMDVlN0Rya2swM1dIcktkbkE6MQ" width="760" height="1022" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+		La jesu es la mas bacana
 	</div>
 
 	<script type="text/javascript">
