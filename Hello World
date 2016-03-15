@@ -6,6 +6,6 @@ public class Hello3
 {
    public static void Main(string[] args)
    {
-      Print("Hello, World!");
+      Response.Write("Hello, World!");
    }
 }
