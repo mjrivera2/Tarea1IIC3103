@@ -1,19 +1,14 @@
-<!DOCTYPE html>
+<%@ Page Language="C#" %>
+<script runat=server>
+protected String GetTime()
+{
+    return DateTime.Now.ToString("t");
+}
+</script>
 <html>
-
-<head>
-  <title>Our Company</title>
-</head>
-
 <body>
-
-  <h1>Welcome to Our Company</h1>
-  <h2>Web Site Main Ingredients:</h2>
-
-  <p>Pages (HTML)</p>
-  <p>Style Sheets (CSS)</p>
-  <p>Computer Code (JavaScript)</p>
-  <p>Live Data (Files and Databases)</p>
-
+    <form id="form1" runat="server">
+       Current server time is <% =GetTime()%>.
+    </form>
 </body>
 </html>
