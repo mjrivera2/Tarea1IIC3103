@@ -26,17 +26,17 @@ $app->post('/validarFirma', function() use($app) {
 	$mensaje = $_GET['mensaje'];
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
-	if(empty($mensaje)){
+	if(empty($mensaje) or empty($firma)){
 		$code1 = "http 400";
 		header('Content-Type: application/json');
 		return $code1;
 	}
-	else if(empty($data2)){
+	elseif(empty($data2)){
 		$code2 = "http 500";
 		header('Content-Type: application/json');
 		return $code2;
 	}
-	else if(strtolower($data2) == strtolower($firma)){
+	elseif(strtolower($data2) == strtolower($firma)){
 		$code = "Http 200";
 		$as = "{ </br>'valido': true </br>'mensaje':".$mensaje. "</br>}";
 		header('Content-Type: application/json');
