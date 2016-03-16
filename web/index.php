@@ -25,7 +25,10 @@ $app->get('/', function() use($app) {
 $app->post('/validarFirma', function() use($app) {
 	$mensaje = $_GET('mensaje');
 	$firma = $_GET('hash');
-	$data = hash($firma, strtolower($mensaje));
+	$data = hash('sha256', strtolower($mensaje));
+	if($data == $firma){
+		return 'sii'
+	}
 	header('Content-Type: application/json');
 	return $mensaje;
 });
