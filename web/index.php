@@ -24,6 +24,7 @@ $app->get('/', function() use($app) {
 
 $app->post('/validarFirma', function($mensaje,$firma) use($app) {
 	$data = hash($firma, $mensaje);
+	header('Content-Type: application/json');
 	return $data;
 });
 
