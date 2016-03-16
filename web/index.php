@@ -45,6 +45,7 @@ $app->get('/status', function() use($app) {
                 'status' => 'OK',
             )
         );
+    }
 });
 
 $app->run();
