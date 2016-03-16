@@ -40,6 +40,7 @@ $app->get('/status', function() use($app) {
                 'status' => 'OK',
             )
         );
+        return $response;
 });
 
 $app->run();
