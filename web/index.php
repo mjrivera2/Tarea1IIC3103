@@ -72,7 +72,7 @@ $app->get('/texto', function() use($app) {
 	}
 	else {
 		$code = "Http 200";
-		$as = "{ </br>'text':".$mensaje." </br>'hash':".$data2. "</br>}";
+		$as = " </br>'text': ".$mensaje." </br>'hash': ".$data2. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
