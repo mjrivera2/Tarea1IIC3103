@@ -27,10 +27,8 @@ $app->post('/validarFirma', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($mensaje) or empty($firma)){
-		$code1 = " ";
-		http_response_code(400);
-		header('Content-Type: application/json');
-		return $code1;
+		
+		return http_response_code(400);
 	}
 	elseif(empty($data2)){
 		$code2 = " ";
