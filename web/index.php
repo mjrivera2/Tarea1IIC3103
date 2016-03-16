@@ -27,16 +27,12 @@ $app->post('/validarFirma', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($mensaje) or empty($firma)){
-
-		//$code1 = "HTTP 400";
 		header('Content-Type: application/json');
-		//return $code1;
-		return $app->json('HTTP', 400);
+		return $app->json('', 400);
 	}
 	elseif(empty($data2)){
-		$code2 = "HTTP 500";
 		header('Content-Type: application/json');
-		return $code2;
+		return $app->json('', 500);
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
 		$code = "HTTP 200";
@@ -55,9 +51,8 @@ $app->post('/validarFirma', function() use($app) {
 
 
 $app->get('/status', function() use($app) {
-  $data = "HTTP 201";
 header('Content-Type: application/json');
-   return $data;
+   return $app->json('', 201);
 });
 
 $app->get('/texto', function() use($app) {
@@ -66,9 +61,8 @@ $app->get('/texto', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($data2)){
-		$code2 = "HTTP 500";
 		header('Content-Type: application/json');
-		return $code2;
+		return $app->json('', 500);
 	}
 	else {
 		$code = "HTTP 200";
