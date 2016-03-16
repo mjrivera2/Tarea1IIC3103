@@ -22,8 +22,9 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
-$app->post('/validarFirma', function() use($app) {
-
+$app->post('/validarFirma', function($mensaje,$firma) use($app) {
+	$data = hash($firma, $mensaje);
+	return $data;
 });
 
 use Phalcon\Http\Response; 
