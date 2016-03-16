@@ -30,17 +30,10 @@ use Phalcon\Http\Response;
 
 $app->get('/status', function() use($app) {
   
-  $response = new Response();
-
-        // Change the HTTP status
-        //$response->setStatusCode(201, "Created");
-
-        $response->setJsonContent(
-            array(
-                'status' => 'OK',
-            )
-        );
-   return $response;
+  $data = "Http 201";
+header('Content-Type: application/json');
+echo json_encode($data);
+   return $data;
 });
 
 $app->run();
