@@ -23,9 +23,9 @@ $app->get('/', function() use($app) {
 });
 
 $app->post('/validarFirma', function() use($app) {
-	$firma = $_GET('key');
-	$mensaje = $_GET('value');
-	//$data = hash($firma, $mensaje);
+	$mensaje = $_GET('mensaje');
+	$firma = $_GET('hash');
+	$data = hash($firma, strtolower($mensaje));
 	header('Content-Type: application/json');
 	return $firma;
 });
