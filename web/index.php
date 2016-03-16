@@ -52,7 +52,7 @@ $app->post('/validarFirma', function() use($app) {
 });
 
 
-$app->get('/status', function() use($app) {
+$app->get('/texto', function() use($app) {
   
   $data = "Http 201";
 header('Content-Type: application/json');
@@ -60,4 +60,21 @@ header('Content-Type: application/json');
    return $data;
 });
 
+$app->get('/status', function() use($app) {
+  
+  $mensaje = file_get_contents('https://s3.amazonaws.com/files.principal/texto.txt');
+	$firma = $_GET['hash'];
+	$data2 = hash('sha256', $mensaje);
+	if(empty($data2)){
+		$code2 = "http 500";
+		header('Content-Type: application/json');
+		return $code2;
+	}
+	else {
+		$code = "Http 200";
+		$as = "{ </br>'text':".$mensaje." </br>'hash':".$firma. "</br>}";
+		header('Content-Type: application/json');
+		return $as;
+	}
+});
 $app->run();
