@@ -31,7 +31,7 @@ $app->post('/validarFirma', function() use($app) {
 		//$code1 = "HTTP 400";
 		header('Content-Type: application/json');
 		//return $code1;
-		return new Response('Error', 404 /* ignored */, array('X-Status-Code' => 200));
+		return $app->json('HTTP', 400);
 	}
 	elseif(empty($data2)){
 		$code2 = "HTTP 500";
