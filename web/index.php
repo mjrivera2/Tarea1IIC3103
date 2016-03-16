@@ -23,9 +23,9 @@ $app->get('/', function() use($app) {
 });
 
 $app->post('/validarFirma', function($mensaje,$firma) use($app) {
-	$data = hash($firma, $mensaje);
+	//$data = hash($firma, $mensaje);
 	header('Content-Type: application/json');
-	return $data;
+	return $mensaje;
 });
 
 use Phalcon\Http\Response; 
