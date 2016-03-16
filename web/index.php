@@ -30,13 +30,11 @@ $app->post('/validarFirma', function() use($app) {
 		//$code1 = "http 400";
 		http_response_code(400);
 		header('Content-Type: application/json');
-		return $code1;
 	}
 	elseif(empty($data2)){
 		//$code2 = "http 500";
 		http_response_code(500);
 		header('Content-Type: application/json');
-		return $code2;
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
 		//$code = "Http 200";
@@ -61,7 +59,6 @@ $app->get('/status', function() use($app) {
   //$data = "Http 201";
 header('Content-Type: application/json');
 //echo json_encode($data);
-   return $data;
 });
 
 $app->get('/texto', function() use($app) {
