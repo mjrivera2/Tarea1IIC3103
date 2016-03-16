@@ -28,6 +28,8 @@ $app->post('/validarFirma', function() use($app) {
 <?php
 });
 
+use Phalcon\Http\Response; 
+
 $app->get('/status', function() use($app) {
   
   $response = new Response();
