@@ -32,7 +32,7 @@ $app->get('/status', function() use($app) {
   
   $data = "Http 201";
 header('Content-Type: application/json');
-echo json_encode($data);
+//echo json_encode($data);
    return $data;
 });
 
