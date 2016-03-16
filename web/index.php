@@ -23,9 +23,7 @@ $app->get('/', function() use($app) {
 });
 
 $app->post('/validarFirma', function() use($app) {
-  ?>
-  hola
-<?php
+
 });
 
 use Phalcon\Http\Response; 
@@ -42,7 +40,7 @@ $app->get('/status', function() use($app) {
                 'status' => 'OK',
             )
         );
-        return $response;
+   return $response;
 });
 
 $app->run();
