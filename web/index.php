@@ -28,7 +28,7 @@ $app->post('/validarFirma', function() use($app) {
 	$data2 = hash('sha256', $mensaje);
 	if(strtolower($data2) == strtolower($firma)){
 		$code = "Http 200";
-		$as = "{\nvalido: true \nmensaje:".$mensaje. "\n}";
+		$as = "{ </br>valido: true </br>mensaje:".$mensaje. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
