@@ -35,11 +35,11 @@ $app->get('/status', function() use($app) {
         // Change the HTTP status
         $response->setStatusCode(201, "Created");
 
-        $response->setJsonContent(
-            array(
-                'status' => 'OK',
-            )
-        );
+      //  $response->setJsonContent(
+        //    array(
+          //      'status' => 'OK',
+          //  )
+       // );
    return $response;
 });
 
