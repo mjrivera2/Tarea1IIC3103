@@ -22,7 +22,7 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
-$app->post('/validarFirma/{mensaje}', function($mensaje) use($app) {
+$app->post('/validarFirma?{firma}={mensaje}', function($mensaje) use($app) {
 	//$data = hash($firma, $mensaje);
 	header('Content-Type: application/json');
 	return $mensaje;
