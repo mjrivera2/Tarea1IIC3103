@@ -27,14 +27,16 @@ $app->post('/validarFirma', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($mensaje) or empty($firma)){
-		//$code1 = "http 400";
+		$code1 = " ";
 		http_response_code(400);
 		header('Content-Type: application/json');
+		return $code1;
 	}
 	elseif(empty($data2)){
-		//$code2 = "http 500";
+		$code2 = " ";
 		http_response_code(500);
 		header('Content-Type: application/json');
+		return $code2;
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
 		//$code = "Http 200";
@@ -56,9 +58,10 @@ $app->post('/validarFirma', function() use($app) {
 
 $app->get('/status', function() use($app) {
   http_response_code(201);
-  //$data = "Http 201";
+  $data = " ";
 header('Content-Type: application/json');
 //echo json_encode($data);
+   return $data;
 });
 
 $app->get('/texto', function() use($app) {
