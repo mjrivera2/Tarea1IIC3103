@@ -33,13 +33,13 @@ $app->get('/status', function() use($app) {
   $response = new Response();
 
         // Change the HTTP status
-        $response->setStatusCode(201, "Created");
+        //$response->setStatusCode(201, "Created");
 
-      //  $response->setJsonContent(
-        //    array(
-          //      'status' => 'OK',
-          //  )
-       // );
+        $response->setJsonContent(
+            array(
+                'status' => 'OK',
+            )
+        );
    return $response;
 });
 
