@@ -27,23 +27,27 @@ $app->post('/validarFirma', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($mensaje) or empty($firma)){
-		$code1 = "http 400";
+		//$code1 = "http 400";
+		var_dump(http_response_code(400));
 		header('Content-Type: application/json');
 		return $code1;
 	}
 	elseif(empty($data2)){
-		$code2 = "http 500";
+		//$code2 = "http 500";
+		var_dump(http_response_code(500));
 		header('Content-Type: application/json');
 		return $code2;
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
-		$code = "Http 200";
+		//$code = "Http 200";
+		var_dump(http_response_code(200));
 		$as = "{ </br>'valido': true </br>'mensaje':".$mensaje. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
 	else {
-		$code = "Http 200";
+		//$code = "Http 200";
+		var_dump(http_response_code(200));
 		$as = "{ </br>'valido': false </br>'mensaje':".$mensaje. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
@@ -53,8 +57,8 @@ $app->post('/validarFirma', function() use($app) {
 
 
 $app->get('/status', function() use($app) {
-  
-  $data = "Http 201";
+  var_dump(http_response_code(201));
+  //$data = "Http 201";
 header('Content-Type: application/json');
 //echo json_encode($data);
    return $data;
@@ -66,12 +70,14 @@ $app->get('/texto', function() use($app) {
 	$firma = $_GET['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($data2)){
-		$code2 = "http 500";
+		//$code2 = "http 500";
+		var_dump(http_response_code(500));
 		header('Content-Type: application/json');
 		return $code2;
 	}
 	else {
-		$code = "Http 200";
+		//$code = "Http 200";
+		var_dump(http_response_code(200));
 		$as = " </br>'text': ".$mensaje." </br>'hash': ".$data2. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
