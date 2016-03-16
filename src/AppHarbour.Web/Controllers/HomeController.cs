@@ -6,8 +6,8 @@ namespace AppHarbour.Web.Controllers
 	{
 		public ActionResult Index()
 		{
-			return RedirectToAction("ViewController", 
-                        "Get");
+			return RedirectToAction("Get", 
+                        "ViewController.cs");
 		}
 	}  
 }
