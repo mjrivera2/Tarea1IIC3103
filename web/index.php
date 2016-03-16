@@ -35,14 +35,12 @@ $app->post('/validarFirma', function() use($app) {
 		return $app->json('', 500);
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
-		$code = "HTTP 200";
-		$as = $code."</br>{ </br>'valido': true </br>'mensaje':".$mensaje. "</br>}";
+		$as = "{ </br>'valido': true </br>'mensaje':".$mensaje. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
 	else {
-		$code = "HTTP 200";
-		$as = $code."</br>{ </br>'valido': false </br>'mensaje':".$mensaje. "</br>}";
+		$as = "{ </br>'valido': false </br>'mensaje':".$mensaje. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
@@ -65,9 +63,7 @@ $app->get('/texto', function() use($app) {
 		return $app->json('', 500);
 	}
 	else {
-		$code = "HTTP 200";
-		http_response_code(200);
-		$as = $code."</br>'text': ".$mensaje." </br>'hash': ".$data2. "</br>}";
+		$as = "'text': ".$mensaje." </br>'hash': ".$data2. "</br>}";
 		header('Content-Type: application/json');
 		return $as;
 	}
