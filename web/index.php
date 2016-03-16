@@ -23,16 +23,17 @@ $app->get('/', function() use($app) {
 });
 
 $app->post('/validarFirma', function() use($app) {
-	$mensaje = $_GET('mensaje');
-	$firma = $_GET('hash');
-	$data = hash('sha256', $mensaje);
-	
-
+	$mensaje = $_GET['mensaje'];
+	$firma = $_GET['hash'];
+	$data2 = hash('sha256', $mensaje);
+	if($data2 == $firma){
+		header('Content-Type: application/json');
+	return $firma;
+	}
 	header('Content-Type: application/json');
 	return $mensaje;
 });
 
-use Phalcon\Http\Response; 
 
 $app->get('/status', function() use($app) {
   
