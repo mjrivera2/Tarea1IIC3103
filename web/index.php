@@ -69,9 +69,10 @@ $app->get('/texto', function() use($app) {
 		return $app->json('', 500);
 	}
 	else {
-		$as = "'text': ".$mensaje." </br>'hash': ".$data2. "</br>}";
 		header('Content-Type: application/json');
-		return $as;
+		$json_data = array('text'=>$mensaje,'hash'=>$data2);
+		$json = json_encode($json_data);
+		return $json;
 	}
 });
 $app->run();
