@@ -35,14 +35,16 @@ $app->post('/validarFirma', function() use($app) {
 		return $app->json('', 500);
 	}
 	elseif(strtolower($data2) == strtolower($firma)){
-		$as = "{ </br>'valido': true </br>'mensaje':".$mensaje. "</br>}";
+		$as = "{'valido': true 'mensaje':".$mensaje. "}";
 		header('Content-Type: application/json');
-		return $as;
+		echo $as;
+		return True;
 	}
 	else {
-		$as = "{ </br>'valido': false </br>'mensaje':".$mensaje. "</br>}";
+		$as = "{'valido': false 'mensaje':".$mensaje. "}";
 		header('Content-Type: application/json');
-		return $as;
+		echo $as;
+		return False;
 	}
 
 });
