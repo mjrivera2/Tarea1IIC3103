@@ -42,7 +42,7 @@ $app->post('/validarFirma', function() use($app) {
 	$json = json_decode($json_data);
 	echo $json;
 		
-		return $json->valido;
+		return $json['valido'];
 	}
 	else {
 		header('Content-Type: application/json');
@@ -52,7 +52,7 @@ $app->post('/validarFirma', function() use($app) {
 	$json = json_decode($json_data);
 	echo $json;
 		
-		return $json->valido;
+		return $json['valido'];
 	}
 
 });
