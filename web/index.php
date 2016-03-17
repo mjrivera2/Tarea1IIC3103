@@ -23,8 +23,8 @@ $app->get('/', function() use($app) {
 });
 
 $app->post('/validarFirma', function() use($app) {
-	$mensaje = $_GET['mensaje'];
-	$firma = $_GET['hash'];
+	$mensaje = $_REQUEST['mensaje'];
+	$firma = $_REQUEST['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($mensaje) or empty($firma)){
 		header('Content-Type: application/json');
@@ -56,7 +56,7 @@ header('Content-Type: application/json');
 $app->get('/texto', function() use($app) {
   
   $mensaje = file_get_contents('https://s3.amazonaws.com/files.principal/texto.txt');
-	$firma = $_GET['hash'];
+	$firma = $_REQUEST['hash'];
 	$data2 = hash('sha256', $mensaje);
 	if(empty($data2)){
 		header('Content-Type: application/json');
