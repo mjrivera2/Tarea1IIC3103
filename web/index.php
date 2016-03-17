@@ -46,7 +46,8 @@ $app->post('/validarFirma', function() use($app) {
 	}
 	else {
 		header('Content-Type: application/json');
-		$json_data = array('valido'=>'false','mensaje'=>$mensaje);
+		$bool = false;
+		$json_data = array('valido'=>$bool,'mensaje'=>$mensaje);
 		$json = json_encode($json_data);
 		return $json;
 	}
